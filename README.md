@@ -8,6 +8,12 @@ Start with your needs. Understand the offering. Compare against the same require
 
 This is the public methodology and contribution repository. It is **not** the source code for the SecOps Unpacked platform, a vendor leaderboard, or a collection of vendor submissions.
 
+## Use ASEF online
+
+**[Open the interactive ASEF framework on SecOps Unpacked](https://secops-unpacked.ai/asef/guide)**
+
+Use the website to define your needs, explore available vendor profiles, compare offerings and run your own evaluations. Use this repository to read the methodology and contribute improvements. Repository changes do not automatically update the live platform.
+
 ## Start here
 
 | What you want to do | Where to go |

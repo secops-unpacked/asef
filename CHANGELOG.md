@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Added a prominent link to the interactive ASEF framework at the top of the README, with a clear distinction between the live platform and this contribution repository. No methodology or scoring changes.
+
 ## Public documentation revision 2026-10-06.1
 
 Initial public repository, based on framework **3.1.3** (application framework release: October 4, 2026) and the October 6 document alignment.
