@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Discuss an idea or methodology question
+    url: https://github.com/secops-unpacked/asef/discussions
+    about: Start a conversation before proposing a specific change.
+  - name: Contribute without GitHub or contact the maintainer
+    url: https://secops-unpacked.ai/asef/contribute
+    about: Do not include confidential material in an initial message.

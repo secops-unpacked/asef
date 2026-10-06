@@ -1,0 +1,1341 @@
+{
+  "schemaVersion": 1,
+  "frameworkVersion": "3.1.3",
+  "publicationRevision": "2026-10-06.1",
+  "sourceRevision": "19aeccd34783dd733561e1cfd4694b922b4e7506",
+  "kind": "technology-capabilities",
+  "capabilities": [
+    {
+      "id": "far_left.onboarding.source-onboarding",
+      "name": "Source onboarding",
+      "description": "Connect a new log source without professional services.",
+      "sourceZone": "far_left",
+      "subdomain": "Source onboarding",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "far_left"
+      ],
+      "tracksIntegrations": true
+    },
+    {
+      "id": "far_left.parsing.parser-generation",
+      "name": "Parser generation",
+      "description": "Generate a parser for a new or custom log format.",
+      "sourceZone": "far_left",
+      "subdomain": "Parsing and normalization",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "far_left"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "far_left.parsing.normalization-common-model",
+      "name": "Normalization to a common model",
+      "description": "Map parsed fields into a shared schema such as OCSF or ECS.",
+      "sourceZone": "far_left",
+      "subdomain": "Parsing and normalization",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "far_left"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "far_left.schema.field-schema-mapping",
+      "name": "Field and schema mapping",
+      "description": "Map source fields to the common schema and flag unmapped fields.",
+      "sourceZone": "far_left",
+      "subdomain": "Schema and field mapping",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "far_left"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "far_left.quality.log-quality-completeness",
+      "name": "Log quality and completeness assessment",
+      "description": "Assess whether a source is complete, timely, and well formed.",
+      "sourceZone": "far_left",
+      "subdomain": "Data quality and coverage",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "far_left"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "far_left.quality.data-gap-identification",
+      "name": "Data gap identification",
+      "description": "Identify missing or under-covered sources against expected telemetry.",
+      "sourceZone": "far_left",
+      "subdomain": "Data quality and coverage",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "far_left"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "far_left.routing.ingest-time-enrichment",
+      "name": "Ingest-time enrichment",
+      "description": "Enrich events at ingestion with identity, asset, or geo context.",
+      "sourceZone": "far_left",
+      "subdomain": "Pipeline health and routing",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "far_left"
+      ],
+      "tracksIntegrations": true
+    },
+    {
+      "id": "far_left.routing.routing-filtering",
+      "name": "Routing and filtering",
+      "description": "Route, drop, or tier events by value before indexing.",
+      "sourceZone": "far_left",
+      "subdomain": "Pipeline health and routing",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "far_left"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "left.author.author-from-description",
+      "name": "Detection authoring from description",
+      "description": "Generate detection logic from a plain description.",
+      "sourceZone": "left",
+      "subdomain": "Detection authoring",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "left"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "left.author.rule-logic-understanding",
+      "name": "Rule logic understanding",
+      "description": "Read and explain existing detection logic.",
+      "sourceZone": "left",
+      "subdomain": "Detection authoring",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "left"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "left.author.query-translation",
+      "name": "Query translation across SIEM languages",
+      "description": "Translate detection logic between SIEM query languages.",
+      "sourceZone": "left",
+      "subdomain": "Detection authoring",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "left"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "left.coverage.mitre-mapping",
+      "name": "MITRE ATT&CK coverage mapping",
+      "description": "Map current detections to ATT&CK and surface gaps.",
+      "sourceZone": "left",
+      "subdomain": "Coverage and gap analysis",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "left"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "left.coverage.gap-recommendation",
+      "name": "Coverage gap recommendation",
+      "description": "Recommend detections to close mapped coverage gaps.",
+      "sourceZone": "left",
+      "subdomain": "Coverage and gap analysis",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "left"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "left.tuning.fp-tuning",
+      "name": "False positive tuning",
+      "description": "Tune rules to cut false positives.",
+      "sourceZone": "left",
+      "subdomain": "Tuning and quality",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "left"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "left.tuning.noisy-rule-identification",
+      "name": "Noisy-rule identification",
+      "description": "Surface rules generating disproportionate noise.",
+      "sourceZone": "left",
+      "subdomain": "Tuning and quality",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "left"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "left.dac.detection-as-code",
+      "name": "Detection as code and version control",
+      "description": "Manage detections as versioned, reviewable code.",
+      "sourceZone": "left",
+      "subdomain": "Detection as code",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "left"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "left.validation.testing-bas",
+      "name": "Detection testing and validation",
+      "description": "Validate detections with breach and attack simulation.",
+      "sourceZone": "left",
+      "subdomain": "Validation and resilience",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "left"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "left.validation.decay-drift",
+      "name": "Detection decay and drift management",
+      "description": "Detect and manage detection decay and drift over time.",
+      "sourceZone": "left",
+      "subdomain": "Validation and resilience",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "left"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "mid.context.internal-ingest",
+      "name": "Internal context ingestion",
+      "description": "Pull past incidents, wikis, and chat into the investigation.",
+      "sourceZone": "middle",
+      "subdomain": "Knowledge Graph and Context",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "middle"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "mid.context.case-mgmt-connection",
+      "name": "Case management connection",
+      "description": "Read and write the case system of record.",
+      "sourceZone": "middle",
+      "subdomain": "Knowledge Graph and Context",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "middle"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "mid.enrich.external-ti",
+      "name": "External threat intel enrichment",
+      "description": "Enrich entities with external threat intelligence.",
+      "sourceZone": "middle",
+      "subdomain": "Enrichment",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "middle"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "mid.correlate.dedup-cluster",
+      "name": "Alert dedup and clustering",
+      "description": "Group related alerts into a single incident.",
+      "sourceZone": "middle",
+      "subdomain": "Correlation and Scoping",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "middle"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "mid.correlate.timeline",
+      "name": "Timeline reconstruction",
+      "description": "Build an ordered timeline of events.",
+      "sourceZone": "middle",
+      "subdomain": "Correlation and Scoping",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "middle"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "mid.correlate.blast-radius",
+      "name": "Blast radius scoping",
+      "description": "Determine the full scope of affected assets and identities.",
+      "sourceZone": "middle",
+      "subdomain": "Correlation and Scoping",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "middle"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "mid.engine.guided-investigation",
+      "name": "Guided investigation steps",
+      "description": "Run investigation steps toward a conclusion.",
+      "sourceZone": "middle",
+      "subdomain": "Investigation Engine",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "middle"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "mid.verdict.tp-fp-btp",
+      "name": "Verdict (TP/FP/BTP)",
+      "description": "Assign true positive, false positive, or benign true positive.",
+      "sourceZone": "middle",
+      "subdomain": "Verdict and Disposition",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "middle"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "mid.verdict.confidence",
+      "name": "Confidence scoring",
+      "description": "Attach a confidence level to the verdict.",
+      "sourceZone": "middle",
+      "subdomain": "Verdict and Disposition",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "middle"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "mid.verdict.auto-close-reversal",
+      "name": "Auto-close with reversal tracking",
+      "description": "Auto-close cases and track later reversals.",
+      "sourceZone": "middle",
+      "subdomain": "Verdict and Disposition",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "middle"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "mid.verdict.escalation-routing",
+      "name": "Escalation routing",
+      "description": "Route cases to the right responder or queue.",
+      "sourceZone": "middle",
+      "subdomain": "Verdict and Disposition",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "middle"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.identity.group-adherence",
+      "name": "Group Adherence",
+      "description": "Add or remove an account from a group.",
+      "sourceZone": "right",
+      "subdomain": "Identity",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.identity.label-user",
+      "name": "Label User (Tagging)",
+      "description": "Tag or label a user account.",
+      "sourceZone": "right",
+      "subdomain": "Identity",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.identity.revoke-sessions",
+      "name": "Revoke Sessions",
+      "description": "Revoke active user sessions.",
+      "sourceZone": "right",
+      "subdomain": "Identity",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.identity.reset-password-standard",
+      "name": "Reset Password (Standard)",
+      "description": "Reset a standard user's password.",
+      "sourceZone": "right",
+      "subdomain": "Identity",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.identity.disable-standard-user",
+      "name": "Disable Standard User",
+      "description": "Disable a standard user account.",
+      "sourceZone": "right",
+      "subdomain": "Identity",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.identity.delete-sharing-permissions",
+      "name": "Delete Sharing Permissions",
+      "description": "Remove sharing permissions from resources.",
+      "sourceZone": "right",
+      "subdomain": "Identity",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.identity.remove-specific-permissions",
+      "name": "Remove Specific Permissions",
+      "description": "Remove a specific set of permissions.",
+      "sourceZone": "right",
+      "subdomain": "Identity",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.identity.group-creation",
+      "name": "Group Creation",
+      "description": "Create a new security group.",
+      "sourceZone": "right",
+      "subdomain": "Identity",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.identity.disable-service-principals",
+      "name": "Disable Service Principals",
+      "description": "Disable a service account, service principal, or managed identity.",
+      "sourceZone": "right",
+      "subdomain": "Identity",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.identity.reset-vip-password",
+      "name": "Reset VIP Password",
+      "description": "Reset password for C-suite or VP level users.",
+      "sourceZone": "right",
+      "subdomain": "Identity",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.identity.rotate-secrets-production",
+      "name": "Rotate Secrets (Production)",
+      "description": "Create or rotate secrets and tokens in production.",
+      "sourceZone": "right",
+      "subdomain": "Identity",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.network.block-port",
+      "name": "Block Port",
+      "description": "Block a specific port.",
+      "sourceZone": "right",
+      "subdomain": "Network",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.network.connection-reset",
+      "name": "Connection Reset",
+      "description": "Reset a network connection.",
+      "sourceZone": "right",
+      "subdomain": "Network",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.network.sinkhole-traffic",
+      "name": "Sinkhole Traffic",
+      "description": "Sinkhole traffic to a specific destination.",
+      "sourceZone": "right",
+      "subdomain": "Network",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.network.disconnect-host",
+      "name": "Disconnect Host",
+      "description": "Disconnect a host from the network.",
+      "sourceZone": "right",
+      "subdomain": "Network",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.network.quarantine-device",
+      "name": "Quarantine Device",
+      "description": "Quarantine a device at network level.",
+      "sourceZone": "right",
+      "subdomain": "Network",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.network.firewall-rule-creation",
+      "name": "Firewall Rule Creation",
+      "description": "Create a new firewall rule.",
+      "sourceZone": "right",
+      "subdomain": "Network",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.network.modify-nat-rules",
+      "name": "Modify NAT Rules",
+      "description": "Change NAT rules to modify traffic patterns.",
+      "sourceZone": "right",
+      "subdomain": "Network",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.network.vlan-creation",
+      "name": "VLAN Creation",
+      "description": "Create a new VLAN on the network.",
+      "sourceZone": "right",
+      "subdomain": "Network",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.network.move-host-isolated-vlan",
+      "name": "Move Host to Isolated VLAN",
+      "description": "Move a device to a restricted VLAN.",
+      "sourceZone": "right",
+      "subdomain": "Network",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.network.routing-table-change",
+      "name": "Routing Table Change",
+      "description": "Change a routing table entry.",
+      "sourceZone": "right",
+      "subdomain": "Network",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.network.quarantine-enterprise-server",
+      "name": "Quarantine Enterprise Server",
+      "description": "Quarantine a server running an enterprise service.",
+      "sourceZone": "right",
+      "subdomain": "Network",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.endpoint.malware-scan-forensics",
+      "name": "Malware Scan / Forensics",
+      "description": "Initiate a scan or forensics collection on device.",
+      "sourceZone": "right",
+      "subdomain": "Endpoint",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "middle"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.endpoint.clear-browser-cache",
+      "name": "Clear Browser Cache",
+      "description": "Remove files, cookies, data from browser cache.",
+      "sourceZone": "right",
+      "subdomain": "Endpoint",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.endpoint.collect-memory-dump",
+      "name": "Collect Memory Dump",
+      "description": "Initiate and retrieve a memory dump forensically.",
+      "sourceZone": "right",
+      "subdomain": "Endpoint",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "middle"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.endpoint.kill-process",
+      "name": "Kill Process",
+      "description": "Terminate a running process.",
+      "sourceZone": "right",
+      "subdomain": "Endpoint",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.endpoint.block-file-hash",
+      "name": "Block File (via Hash)",
+      "description": "Block a file by its hash.",
+      "sourceZone": "right",
+      "subdomain": "Endpoint",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.endpoint.lock-out-local-user",
+      "name": "Lock Out Local User",
+      "description": "Lock out a user from the local device.",
+      "sourceZone": "right",
+      "subdomain": "Endpoint",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.endpoint.block-removable-drive",
+      "name": "Block Removable Drive",
+      "description": "Block removable storage devices.",
+      "sourceZone": "right",
+      "subdomain": "Endpoint",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.endpoint.isolate-device",
+      "name": "Isolate Device",
+      "description": "Isolate a device from reaching out.",
+      "sourceZone": "right",
+      "subdomain": "Endpoint",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.endpoint.remove-device-from-domain",
+      "name": "Remove Device from Domain",
+      "description": "Remove a device from the domain.",
+      "sourceZone": "right",
+      "subdomain": "Endpoint",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.endpoint.deploy-remediation-script",
+      "name": "Deploy Remediation Script",
+      "description": "Deploy a script or application for remediation.",
+      "sourceZone": "right",
+      "subdomain": "Endpoint",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.cloud.copy-storage-device",
+      "name": "Copy Storage Device",
+      "description": "Create a copy of cloud storage for forensic investigation.",
+      "sourceZone": "right",
+      "subdomain": "Cloud",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "middle"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.cloud.mount-storage-device",
+      "name": "Mount Storage Device",
+      "description": "Mount new storage to a VM for forensics.",
+      "sourceZone": "right",
+      "subdomain": "Cloud",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "middle"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.cloud.snapshot-vm-db",
+      "name": "Snapshot VM / DB",
+      "description": "Create a snapshot of current state.",
+      "sourceZone": "right",
+      "subdomain": "Cloud",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.cloud.enable-diagnostic-settings",
+      "name": "Enable Diagnostic Settings",
+      "description": "Alter settings for advanced log gathering.",
+      "sourceZone": "right",
+      "subdomain": "Cloud",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.cloud.remove-permissions-resource",
+      "name": "Remove Permissions to Resource",
+      "description": "Remove a service principal or managed identity from a resource.",
+      "sourceZone": "right",
+      "subdomain": "Cloud",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.cloud.modify-security-group-rules",
+      "name": "Modify Security Group Rules",
+      "description": "Modify firewall rules on a cloud resource.",
+      "sourceZone": "right",
+      "subdomain": "Cloud",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.cloud.modify-access-type",
+      "name": "Modify Access Type",
+      "description": "Switch resource from public to private.",
+      "sourceZone": "right",
+      "subdomain": "Cloud",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.cloud.stop-resource",
+      "name": "Stop a Resource",
+      "description": "Stop a resource from execution.",
+      "sourceZone": "right",
+      "subdomain": "Cloud",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.cloud.apply-resource-lock",
+      "name": "Apply Resource Lock",
+      "description": "Make the resource immutable or read-only.",
+      "sourceZone": "right",
+      "subdomain": "Cloud",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.cloud.create-security-group",
+      "name": "Create a Security Group",
+      "description": "Create and apply a new security group.",
+      "sourceZone": "right",
+      "subdomain": "Cloud",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.cloud.isolate-resource",
+      "name": "Isolate Resource",
+      "description": "Quarantine a cloud resource.",
+      "sourceZone": "right",
+      "subdomain": "Cloud",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.cloud.modify-keyvault-entries",
+      "name": "Modify KeyVault Entries",
+      "description": "Add or modify resources in a KeyVault.",
+      "sourceZone": "right",
+      "subdomain": "Cloud",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.cloud.remove-files-storage-buckets",
+      "name": "Remove Files from Storage Buckets",
+      "description": "Remove files from cloud storage containers.",
+      "sourceZone": "right",
+      "subdomain": "Cloud",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.cloud.delete-resource",
+      "name": "Delete Resource",
+      "description": "Delete a resource from the cloud environment.",
+      "sourceZone": "right",
+      "subdomain": "Cloud",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.cloud.use-breakglass-account",
+      "name": "Use Breakglass Account",
+      "description": "Use a breakglass account in case of emergency.",
+      "sourceZone": "right",
+      "subdomain": "Cloud",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.saas.grab-email-sample",
+      "name": "Grab Email Sample",
+      "description": "Grab an attached file from an email.",
+      "sourceZone": "right",
+      "subdomain": "SaaS",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "middle"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.saas.grab-email-link",
+      "name": "Grab Email Link",
+      "description": "Grab a link from inside an email message.",
+      "sourceZone": "right",
+      "subdomain": "SaaS",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "middle"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.saas.quarantine-email",
+      "name": "Quarantine Email",
+      "description": "Move email to quarantine or junk.",
+      "sourceZone": "right",
+      "subdomain": "SaaS",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.saas.delete-email",
+      "name": "Delete Email",
+      "description": "Remove an email from the user's mailbox.",
+      "sourceZone": "right",
+      "subdomain": "SaaS",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.saas.create-email-routing-rule",
+      "name": "Create Email Routing Rule",
+      "description": "Create rules to handle and route incoming email.",
+      "sourceZone": "right",
+      "subdomain": "SaaS",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.saas.disable-malicious-inbox-rule",
+      "name": "Disable Malicious Inbox Rule",
+      "description": "Disable a malicious rule in a user's mailbox.",
+      "sourceZone": "right",
+      "subdomain": "SaaS",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.saas.block-sender",
+      "name": "Block Sender",
+      "description": "Block a sender from the domain.",
+      "sourceZone": "right",
+      "subdomain": "SaaS",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.saas.add-remove-meeting-invite",
+      "name": "Add / Remove Meeting Invite",
+      "description": "Modify a user's calendar.",
+      "sourceZone": "right",
+      "subdomain": "SaaS",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.saas.modify-user-status-hr",
+      "name": "Read / Modify User Status (HR)",
+      "description": "Read or modify user status in HR platform.",
+      "sourceZone": "right",
+      "subdomain": "SaaS",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.saas.modify-hr-records",
+      "name": "Modify HR Records",
+      "description": "Modify HR records beyond status.",
+      "sourceZone": "right",
+      "subdomain": "SaaS",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "right"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.feedback.post-incident-summary",
+      "name": "Post-incident summary and lessons",
+      "description": "Generate a post-incident summary with lessons learned.",
+      "sourceZone": "right",
+      "subdomain": "Feedback loop",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "cross_cutting"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.feedback.analyst-feedback-mechanism",
+      "name": "Feedback mechanism",
+      "description": "Let analysts confirm, reject, or correct automated outcomes.",
+      "sourceZone": "right",
+      "subdomain": "Feedback loop",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "cross_cutting"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "right.feedback.improvement-suggestions",
+      "name": "Improvement suggestions from closed cases",
+      "description": "Suggest detection and process improvements from closed cases.",
+      "sourceZone": "right",
+      "subdomain": "Feedback loop",
+      "scale": "autonomy",
+      "shiftMapStages": [
+        "cross_cutting"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "platform.ops.close-alerts-siem",
+      "name": "SIEM alert bidirectional updates",
+      "description": "Can the product receive alert changes from the SIEM and write updates back? Specify which fields sync in each direction, such as status, verdict, severity, notes, and reopened alerts. Closing an alert alone is only partial support.",
+      "sourceZone": "platform",
+      "subdomain": "Platform Operations",
+      "scale": "functional",
+      "shiftMapStages": [
+        "platform"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "platform.ops.alerting",
+      "name": "Responder notifications and escalation",
+      "description": "How does the product notify the right responder when a case needs attention or approval? Identify the supported channels, routing rules, and escalation options.",
+      "sourceZone": "platform",
+      "subdomain": "Platform Operations",
+      "scale": "functional",
+      "shiftMapStages": [
+        "platform"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "platform.ops.native-chat-integration",
+      "name": "Slack and Teams case collaboration",
+      "description": "Can analysts review cases, add context, and approve or reject actions in Slack or Teams? Distinguish two-way case interaction from one-way notifications.",
+      "sourceZone": "platform",
+      "subdomain": "Platform Operations",
+      "scale": "functional",
+      "shiftMapStages": [
+        "platform"
+      ],
+      "tracksIntegrations": true
+    },
+    {
+      "id": "platform.ops.stats-health-dashboards",
+      "name": "Platform and integration health dashboards",
+      "description": "Can customers see connector health, processing delays, failed workflows, and platform usage? Explain which dashboards ship with the product and which customers must build.",
+      "sourceZone": "platform",
+      "subdomain": "Platform Operations",
+      "scale": "functional",
+      "shiftMapStages": [
+        "platform"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "platform.ops.investigation-audit-trail",
+      "name": "Case activity and approval audit trail",
+      "description": "Can a customer reconstruct a case from its inputs, queries, decisions, approvals, and actions? Explain what is recorded, how long it is retained, and whether it can be exported.",
+      "sourceZone": "platform",
+      "subdomain": "Platform Operations",
+      "scale": "functional",
+      "shiftMapStages": [
+        "platform"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "platform.ops.ir-metrics-tracking",
+      "name": "Incident response performance metrics",
+      "description": "Which response metrics can customers track over time, such as time to triage, investigate, and contain? Explain the definitions, reporting filters, and export options.",
+      "sourceZone": "platform",
+      "subdomain": "Platform Operations",
+      "scale": "functional",
+      "shiftMapStages": [
+        "platform"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "platform.ops.logging",
+      "name": "Platform activity and error logs",
+      "description": "Can customers access and export logs of user activity, API calls, connector failures, and workflow errors? Explain the search, retention, and troubleshooting options.",
+      "sourceZone": "platform",
+      "subdomain": "Platform Operations",
+      "scale": "functional",
+      "shiftMapStages": [
+        "platform"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "platform.ops.ease-of-use-gui",
+      "name": "Analyst interface and everyday workflows",
+      "description": "Can analysts review evidence, investigate cases, and manage response actions through the interface? Identify routine tasks that still require code, APIs, or vendor assistance.",
+      "sourceZone": "platform",
+      "subdomain": "Platform Operations",
+      "scale": "functional",
+      "shiftMapStages": [
+        "platform"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "platform.ops.account-management-sso",
+      "name": "Single sign-on and user account management",
+      "description": "Which identity providers and single sign-on methods are supported? Explain how customers provision users, remove access, and enforce their authentication policies.",
+      "sourceZone": "platform",
+      "subdomain": "Platform Operations",
+      "scale": "functional",
+      "shiftMapStages": [
+        "platform"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "platform.ops.support-level",
+      "name": "Vendor support coverage and response times",
+      "description": "What support is included, during which hours, and with what response commitments? Identify the escalation process and any support that requires a higher subscription.",
+      "sourceZone": "platform",
+      "subdomain": "Platform Operations",
+      "scale": "functional",
+      "shiftMapStages": [
+        "platform"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "platform.ops.feedback-loop-mechanism",
+      "name": "Analyst feedback collection and improvement",
+      "description": "How are analyst corrections and case feedback collected and used to improve the product? Distinguish manual feedback, automatic learning, and changes that require customer approval.",
+      "sourceZone": "platform",
+      "subdomain": "Platform Operations",
+      "scale": "functional",
+      "shiftMapStages": [
+        "platform"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "platform.ops.auto-close-reversal-tracking",
+      "name": "Auto-closed case review and reversal reporting",
+      "description": "Can customers review cases closed automatically and track those later reopened or overturned? Explain whether review reports are scheduled, how reversals are recorded, and how missed incidents are surfaced.",
+      "sourceZone": "platform",
+      "subdomain": "Platform Operations",
+      "scale": "functional",
+      "shiftMapStages": [
+        "platform"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "platform.ops.roles-and-responsibilities",
+      "name": "Role-based access and action permissions",
+      "description": "Can customers control who can view cases, change configuration, approve actions, and execute responses? Describe the permission granularity and separation of responsibilities.",
+      "sourceZone": "platform",
+      "subdomain": "Platform Operations",
+      "scale": "functional",
+      "shiftMapStages": [
+        "platform"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "platform.ops.api-development",
+      "name": "Documented APIs for customer integrations",
+      "description": "Which product functions and data are available through documented APIs? Explain how customers build integrations, including authentication, permissions, rate limits, and API versioning.",
+      "sourceZone": "platform",
+      "subdomain": "Platform Operations",
+      "scale": "functional",
+      "shiftMapStages": [
+        "platform"
+      ],
+      "tracksIntegrations": true
+    },
+    {
+      "id": "platform.trust.reasoning-logging",
+      "name": "Recorded decision rationale",
+      "description": "Does the product retain a reviewable explanation for each automated decision? Identify the inputs, rules or models used, and stated reasons recorded alongside the decision.",
+      "sourceZone": "platform",
+      "subdomain": "AI Trust and Governance",
+      "scale": "functional",
+      "shiftMapStages": [
+        "platform"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "platform.trust.explainability-decision-transparency",
+      "name": "Evidence-backed verdict and action explanations",
+      "description": "Can an analyst see why the product reached a verdict or chose an action? Explain how conclusions link to source evidence and how uncertainty or conflicting evidence is shown.",
+      "sourceZone": "platform",
+      "subdomain": "AI Trust and Governance",
+      "scale": "functional",
+      "shiftMapStages": [
+        "platform"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "platform.trust.ai-decision-accuracy-reporting",
+      "name": "Decision accuracy and error reporting",
+      "description": "Can customers measure correct and incorrect verdicts, missed incidents, and inconclusive results? Explain how outcomes are verified and whether the underlying data can be exported for independent review.",
+      "sourceZone": "platform",
+      "subdomain": "AI Trust and Governance",
+      "scale": "functional",
+      "shiftMapStages": [
+        "platform"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "platform.trust.bring-your-own-model",
+      "name": "Customer-provided AI models",
+      "description": "Can customers connect a model or model endpoint they control? Identify supported providers or hosting options, which functions can use them, and any limitations.",
+      "sourceZone": "platform",
+      "subdomain": "AI Trust and Governance",
+      "scale": "functional",
+      "shiftMapStages": [
+        "platform"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "platform.trust.context-grounding",
+      "name": "Decisions grounded in customer context",
+      "description": "Which customer context informs decisions, such as past cases, asset criticality, identities, and business processes? Explain how it is gathered, kept current, and linked to the resulting conclusions.",
+      "sourceZone": "platform",
+      "subdomain": "AI Trust and Governance",
+      "scale": "functional",
+      "shiftMapStages": [
+        "platform"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "platform.trust.autonomous-action-thresholds",
+      "name": "Granular autonomy limits and approval controls",
+      "description": "Can customers set what runs unattended and what needs approval by alert type, data source, severity, asset, or action? Cover automation, AI reasoning, and combinations of both, including overrides and emergency stops.",
+      "sourceZone": "platform",
+      "subdomain": "AI Trust and Governance",
+      "scale": "functional",
+      "shiftMapStages": [
+        "platform"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "platform.trust.model-drift-detection",
+      "name": "Model quality monitoring and drift alerts",
+      "description": "How does the product detect declining accuracy or changes in model behavior over time? Explain what is monitored, how customers are notified, and how they can respond.",
+      "sourceZone": "platform",
+      "subdomain": "AI Trust and Governance",
+      "scale": "functional",
+      "shiftMapStages": [
+        "platform"
+      ],
+      "tracksIntegrations": false
+    },
+    {
+      "id": "platform.trust.adversarial-robustness-testing",
+      "name": "Prompt injection and tool misuse testing",
+      "description": "How is the product tested against malicious instructions in alerts, retrieved content, or tool output? Describe protections against unsafe tool use and what test results customers can review.",
+      "sourceZone": "platform",
+      "subdomain": "AI Trust and Governance",
+      "scale": "functional",
+      "shiftMapStages": [
+        "platform"
+      ],
+      "tracksIntegrations": false
+    }
+  ]
+}

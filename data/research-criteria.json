@@ -1,0 +1,327 @@
+{
+  "schemaVersion": 1,
+  "frameworkVersion": "3.1.3",
+  "publicationRevision": "2026-10-06.1",
+  "sourceRevision": "19aeccd34783dd733561e1cfd4694b922b4e7506",
+  "kind": "research-criteria",
+  "criteria": [
+    {
+      "id": "research.far_left.source_onboarding",
+      "title": "Source onboarding",
+      "sourceZone": "far_left",
+      "track": "technology",
+      "shiftMapStages": [
+        "far_left"
+      ]
+    },
+    {
+      "id": "research.far_left.parsing_normalization",
+      "title": "Parsing and normalization",
+      "sourceZone": "far_left",
+      "track": "technology",
+      "shiftMapStages": [
+        "far_left"
+      ]
+    },
+    {
+      "id": "research.far_left.schema_mapping",
+      "title": "Schema and field mapping",
+      "sourceZone": "far_left",
+      "track": "technology",
+      "shiftMapStages": [
+        "far_left"
+      ]
+    },
+    {
+      "id": "research.far_left.data_quality",
+      "title": "Data quality and coverage",
+      "sourceZone": "far_left",
+      "track": "technology",
+      "shiftMapStages": [
+        "far_left"
+      ]
+    },
+    {
+      "id": "research.far_left.pipeline_health",
+      "title": "Pipeline health and routing",
+      "sourceZone": "far_left",
+      "track": "technology",
+      "shiftMapStages": [
+        "far_left"
+      ]
+    },
+    {
+      "id": "research.left.detection_authoring",
+      "title": "Detection authoring",
+      "sourceZone": "left",
+      "track": "technology",
+      "shiftMapStages": [
+        "left"
+      ]
+    },
+    {
+      "id": "research.left.coverage_gaps",
+      "title": "Coverage and gap analysis",
+      "sourceZone": "left",
+      "track": "technology",
+      "shiftMapStages": [
+        "left"
+      ]
+    },
+    {
+      "id": "research.left.tuning_quality",
+      "title": "Tuning and quality",
+      "sourceZone": "left",
+      "track": "technology",
+      "shiftMapStages": [
+        "left"
+      ]
+    },
+    {
+      "id": "research.left.detection_as_code",
+      "title": "Detection as code and deployment",
+      "sourceZone": "left",
+      "track": "technology",
+      "shiftMapStages": [
+        "left"
+      ]
+    },
+    {
+      "id": "research.left.validation_resilience",
+      "title": "Validation and resilience",
+      "sourceZone": "left",
+      "track": "technology",
+      "shiftMapStages": [
+        "left"
+      ]
+    },
+    {
+      "id": "research.left.proactive_hunting",
+      "title": "Proactive threat hunting",
+      "sourceZone": "left",
+      "track": "technology",
+      "shiftMapStages": [
+        "middle"
+      ]
+    },
+    {
+      "id": "research.middle.enrichment",
+      "title": "Enrichment",
+      "sourceZone": "middle",
+      "track": "technology",
+      "shiftMapStages": [
+        "middle"
+      ]
+    },
+    {
+      "id": "research.middle.correlation_scoping",
+      "title": "Correlation and deduplication",
+      "sourceZone": "middle",
+      "track": "technology",
+      "shiftMapStages": [
+        "middle"
+      ]
+    },
+    {
+      "id": "research.middle.investigation_engine",
+      "title": "Investigation engine",
+      "sourceZone": "middle",
+      "track": "technology",
+      "shiftMapStages": [
+        "middle"
+      ]
+    },
+    {
+      "id": "research.middle.verdict_disposition",
+      "title": "Verdict and disposition",
+      "sourceZone": "middle",
+      "track": "technology",
+      "shiftMapStages": [
+        "middle"
+      ]
+    },
+    {
+      "id": "research.middle.reactive_hunting",
+      "title": "Reactive threat hunting",
+      "sourceZone": "middle",
+      "track": "technology",
+      "shiftMapStages": [
+        "middle"
+      ]
+    },
+    {
+      "id": "research.middle.dfir_collection",
+      "title": "DFIR artifact collection and analysis",
+      "sourceZone": "middle",
+      "track": "technology",
+      "shiftMapStages": [
+        "middle"
+      ]
+    },
+    {
+      "id": "research.middle.dfir_integrity",
+      "title": "DFIR root cause and evidence integrity",
+      "sourceZone": "middle",
+      "track": "technology",
+      "shiftMapStages": [
+        "middle"
+      ]
+    },
+    {
+      "id": "research.right.identity",
+      "title": "Identity response",
+      "sourceZone": "right",
+      "track": "technology",
+      "shiftMapStages": [
+        "right"
+      ]
+    },
+    {
+      "id": "research.right.endpoint",
+      "title": "Endpoint response",
+      "sourceZone": "right",
+      "track": "technology",
+      "shiftMapStages": [
+        "right"
+      ]
+    },
+    {
+      "id": "research.right.network",
+      "title": "Network response",
+      "sourceZone": "right",
+      "track": "technology",
+      "shiftMapStages": [
+        "right"
+      ]
+    },
+    {
+      "id": "research.right.cloud",
+      "title": "Cloud response",
+      "sourceZone": "right",
+      "track": "technology",
+      "shiftMapStages": [
+        "right"
+      ]
+    },
+    {
+      "id": "research.right.saas",
+      "title": "SaaS response",
+      "sourceZone": "right",
+      "track": "technology",
+      "shiftMapStages": [
+        "right"
+      ]
+    },
+    {
+      "id": "research.right.verification_rollback",
+      "title": "Outcome verification and rollback",
+      "sourceZone": "right",
+      "track": "technology",
+      "shiftMapStages": [
+        "right"
+      ]
+    },
+    {
+      "id": "research.right.feedback",
+      "title": "Feedback loop",
+      "sourceZone": "right",
+      "track": "technology",
+      "shiftMapStages": [
+        "cross_cutting"
+      ]
+    },
+    {
+      "id": "research.context",
+      "title": "Organizational context and knowledge",
+      "sourceZone": "middle",
+      "track": "technology",
+      "shiftMapStages": [
+        "left",
+        "middle"
+      ]
+    },
+    {
+      "id": "research.natural_language",
+      "title": "Natural-language creation and maintenance",
+      "sourceZone": "platform",
+      "track": "technology",
+      "shiftMapStages": [
+        "platform"
+      ]
+    },
+    {
+      "id": "research.trust",
+      "title": "Platform and Trust",
+      "sourceZone": "platform",
+      "track": "technology",
+      "shiftMapStages": [
+        "platform"
+      ]
+    },
+    {
+      "id": "mdr.sources",
+      "title": "Sources and customer environment",
+      "sourceZone": "far_left",
+      "track": "mdr",
+      "shiftMapStages": [
+        "far_left"
+      ]
+    },
+    {
+      "id": "mdr.detection",
+      "title": "Detection engineering and hunting",
+      "sourceZone": "left",
+      "track": "mdr",
+      "shiftMapStages": [
+        "left",
+        "middle"
+      ]
+    },
+    {
+      "id": "mdr.context",
+      "title": "Enrichment and organizational context",
+      "sourceZone": "middle",
+      "track": "mdr",
+      "shiftMapStages": [
+        "left",
+        "middle"
+      ]
+    },
+    {
+      "id": "mdr.investigation",
+      "title": "Investigation, employees and DFIR",
+      "sourceZone": "middle",
+      "track": "mdr",
+      "shiftMapStages": [
+        "middle"
+      ]
+    },
+    {
+      "id": "mdr.response",
+      "title": "Response, remediation and handover",
+      "sourceZone": "right",
+      "track": "mdr",
+      "shiftMapStages": [
+        "right"
+      ]
+    },
+    {
+      "id": "mdr.feedback",
+      "title": "Feedback and implemented improvements",
+      "sourceZone": "right",
+      "track": "mdr",
+      "shiftMapStages": [
+        "cross_cutting"
+      ]
+    },
+    {
+      "id": "mdr.trust",
+      "title": "Service transparency and trust",
+      "sourceZone": "platform",
+      "track": "mdr",
+      "shiftMapStages": [
+        "platform"
+      ]
+    }
+  ]
+}

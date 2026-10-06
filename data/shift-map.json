@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "frameworkVersion": "3.1.3",
+  "publicationRevision": "2026-10-06.1",
+  "sourceRevision": "19aeccd34783dd733561e1cfd4694b922b4e7506",
+  "kind": "shift-map",
+  "stages": [
+    {
+      "id": "far_left",
+      "position": "Far Left",
+      "title": "Data foundation",
+      "capabilities": [
+        "Data Pipelines",
+        "Ingestion",
+        "Processing",
+        "Retention"
+      ],
+      "question": "Can it collect, prepare, route and retain the data your team needs?",
+      "description": "Move telemetry from its sources through a usable data pipeline. Distinguish the product's own storage and retention from a connected SIEM or data lake.",
+      "checks": [
+        "Source onboarding and integration ownership",
+        "Parsing, normalization and data quality",
+        "Routing, filtering and pipeline health",
+        "Retention periods, storage tiers, retrieval and deletion"
+      ]
+    },
+    {
+      "id": "left",
+      "position": "Left",
+      "title": "Detection and readiness",
+      "capabilities": [
+        "Detection Engines",
+        "Detection Engineering",
+        "Validation",
+        "SecOps Resilience",
+        "Security Context DBs / Graphs"
+      ],
+      "question": "Can it detect threats and keep detections, telemetry and context ready?",
+      "description": "Run detection engines, build and validate detection content, verify operational coverage, and build or maintain security context. A context database is not automatically a graph.",
+      "checks": [
+        "Detection execution versus authoring rules for another engine",
+        "Detection engineering, tuning and deployment",
+        "Attack simulation, validation and SecOps resilience",
+        "Context collection, storage, relationships, freshness and provenance"
+      ]
+    },
+    {
+      "id": "middle",
+      "position": "Middle",
+      "title": "Investigation and understanding",
+      "capabilities": [
+        "Triage",
+        "Investigation",
+        "DFIR",
+        "Threat Hunting"
+      ],
+      "question": "Can it turn signals and context into a defensible understanding of the incident?",
+      "description": "Use context to enrich, correlate and deduplicate signals, investigate incidents, perform forensics and hunt for threats. Cover proactive and reactive hunting; feed findings back into detection engineering.",
+      "checks": [
+        "Enrichment, correlation and deduplication, including upstream dependencies",
+        "Triage, verdict and escalation",
+        "Investigation, timeline and blast radius",
+        "DFIR, evidence integrity and chain of custody",
+        "Proactive and reactive threat hunting"
+      ]
+    },
+    {
+      "id": "right",
+      "position": "Right",
+      "title": "Remediation and improvements",
+      "capabilities": [
+        "Mitigation",
+        "Remediation"
+      ],
+      "question": "Can it limit harm, remediate the cause and restore operations safely?",
+      "description": "Contain or mitigate the threat, remediate its cause and verify recovery. Separate actions shipped with the product from workflows the customer must build. Feedback alone does not demonstrate mitigation or remediation coverage.",
+      "checks": [
+        "Mitigation and containment actions",
+        "Remediation and recovery",
+        "Verification, reversals and rollback",
+        "Human approval, guardrails and customer-owned processes"
+      ]
+    }
+  ],
+  "crossCutting": [
+    {
+      "id": "platform",
+      "title": "Platform and Trust",
+      "description": "Evaluate deployment, operations, security and governance across the selected offering."
+    },
+    {
+      "id": "cross_cutting",
+      "title": "Feedback and implemented improvements",
+      "description": "Verify how outcomes inform changes across the lifecycle. Feedback alone does not imply Right-stage placement or autonomous remediation."
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+name: Clarify a question or definition
+description: Explain wording that is confusing or hard to evaluate.
+title: "[Clarification] "
+body:
+  - type: markdown
+    attributes:
+      value: "This is public. Do not include vendor submissions, customer data, credentials or recordings."
+  - type: input
+    id: location
+    attributes:
+      label: Which section or capability ID?
+      placeholder: "Example: platform.ops.close-alerts-siem"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is unclear?
+      description: Tell us how a practitioner or vendor might interpret it differently.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Suggested wording or example
+      description: A plain-language example is enough. No coding is required.
+    validations:
+      required: true
+  - type: input
+    id: affiliation
+    attributes:
+      label: Relevant affiliation
+      description: State relevant vendor/commercial ties, or “None”.
+    validations:
+      required: true
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Before submitting
+      options:
+        - label: I have the rights to share this material for inclusion under CC BY 4.0, and it contains no confidential information.
+          required: true

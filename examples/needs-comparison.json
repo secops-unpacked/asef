@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "frameworkVersion": "3.1.3",
+  "kind": "needs-comparison",
+  "fictional": true,
+  "needsId": "fictional-needs-1",
+  "track": "technology",
+  "criteria": [
+    {"id": "research.middle.enrichment", "priority": "must", "successCriterion": "Enrich identity alerts using two approved sources without sending excluded fields."},
+    {"id": "research.right.endpoint", "priority": "must", "successCriterion": "Isolate a test endpoint only after explicit analyst approval and verify the result."},
+    {"id": "research.trust", "priority": "must", "successCriterion": "Export a case audit trail with inputs, decisions, approvals and actions."},
+    {"id": "research.natural_language", "priority": "nice", "successCriterion": "Modify a workflow using natural language with review before deployment."}
+  ],
+  "offerings": [
+    {
+      "id": "fictional-a", "name": "Example Technology A (fictional)", "revision": 1, "track": "technology",
+      "reviewContext": {"needsId": "fictional-needs-1", "profileId": "fictional-a", "profileRevision": 1, "track": "technology"},
+      "findings": [
+        {"criterionId": "research.middle.enrichment", "outcomeCriterion": "Enrich identity alerts using two approved sources without sending excluded fields.", "outcome": 2, "evidenceBasis": "validated", "evidenceReference": "Fictional test A1"},
+        {"criterionId": "research.right.endpoint", "outcomeCriterion": "Isolate a test endpoint only after explicit analyst approval and verify the result.", "outcome": 1, "evidenceBasis": "demonstrated", "evidenceReference": "Fictional test A2: approval worked; verification missing"},
+        {"criterionId": "research.trust", "outcomeCriterion": "Export a case audit trail with inputs, decisions, approvals and actions.", "outcome": 2, "evidenceBasis": "vendor_claim", "evidenceReference": "Fictional claim only; not independently reviewed"}
+      ]
+    },
+    {
+      "id": "fictional-b", "name": "Example Technology B (fictional)", "revision": 1, "track": "technology",
+      "reviewContext": {"needsId": "fictional-needs-1", "profileId": "fictional-b", "profileRevision": 1, "track": "technology"},
+      "findings": [
+        {"criterionId": "research.middle.enrichment", "outcomeCriterion": "Enrich identity alerts using two approved sources without sending excluded fields.", "outcome": 0, "evidenceBasis": "validated", "evidenceReference": "Fictional test B1: excluded field was sent"},
+        {"criterionId": "research.right.endpoint", "outcomeCriterion": "Isolate a test endpoint only after explicit analyst approval and verify the result.", "outcome": 2, "evidenceBasis": "demonstrated", "evidenceReference": "Fictional test B2"},
+        {"criterionId": "research.trust", "outcomeCriterion": "Export a case audit trail with inputs, decisions, approvals and actions.", "outcome": 2, "evidenceBasis": "documentation", "evidenceReference": "Fictional reviewed documentation B3"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1505 @@
+{
+  "schemaVersion": 1,
+  "frameworkVersion": "3.1.3",
+  "publicationRevision": "2026-10-06.1",
+  "sourceRevision": "19aeccd34783dd733561e1cfd4694b922b4e7506",
+  "kind": "mdr-questions",
+  "sections": [
+    {
+      "id": "sources",
+      "title": "Sources and customer environment",
+      "description": "Where cases and evidence come from, including the customer's existing SIEM and employee requests."
+    },
+    {
+      "id": "detection",
+      "title": "Detection engineering and hunting",
+      "description": "What you build, maintain and proactively hunt for, and what the customer can see or change."
+    },
+    {
+      "id": "context",
+      "title": "Enrichment and organizational context",
+      "description": "How context is gathered, maintained and used. A graph is an architecture choice, not a score."
+    },
+    {
+      "id": "investigation",
+      "title": "Investigation, employees and DFIR",
+      "description": "Investigation depth, employee interaction and forensic boundaries."
+    },
+    {
+      "id": "response",
+      "title": "Response, remediation and handover",
+      "description": "Actions delivered, customer-specific processes, approval and where your responsibility ends."
+    },
+    {
+      "id": "feedback",
+      "title": "Feedback and implemented improvements",
+      "description": "What changes after a case, who approves it and how the customer knows it happened."
+    },
+    {
+      "id": "trust",
+      "title": "Service transparency and trust",
+      "description": "Human versus machine activity, safety, customer visibility and service commitments."
+    }
+  ],
+  "questions": [
+    {
+      "id": "mdr.sources.availability",
+      "label": "Is this included in the evaluated service?",
+      "description": "Record the named package boundary. Add-ons and partner delivery are not included service.",
+      "example": "Reactive hunting is included; proactive hunting requires an add-on.",
+      "options": [
+        {
+          "value": "included",
+          "label": "Included in the evaluated package"
+        },
+        {
+          "value": "add_on",
+          "label": "Paid add-on; not included"
+        },
+        {
+          "value": "partner",
+          "label": "Delivered by a named partner"
+        },
+        {
+          "value": "roadmap",
+          "label": "Roadmap only"
+        },
+        {
+          "value": "not_supported",
+          "label": "Not offered"
+        }
+      ],
+      "section": "sources",
+      "optional": false,
+      "multiple": false
+    },
+    {
+      "id": "mdr.sources.intake",
+      "label": "Where can the service receive cases and evidence?",
+      "description": "Separate incoming alerts from direct telemetry and customer requests.",
+      "example": "We ingest SIEM incidents, query EDR evidence directly and accept employee-reported phishing.",
+      "options": [
+        {
+          "value": "siem",
+          "label": "Customer SIEM / data lake"
+        },
+        {
+          "value": "detection_tools",
+          "label": "Directly from EDR, NDR, identity or other detection tools"
+        },
+        {
+          "value": "raw_telemetry",
+          "label": "Raw telemetry"
+        },
+        {
+          "value": "tickets",
+          "label": "Ticketing / API / webhook"
+        },
+        {
+          "value": "employee",
+          "label": "Employee reports or custom investigation requests"
+        },
+        {
+          "value": "own_stack",
+          "label": "Provider's own detection stack"
+        }
+      ],
+      "multiple": true,
+      "section": "sources",
+      "optional": false
+    },
+    {
+      "id": "mdr.sources.siem",
+      "label": "Can you operate over the customer's existing SIEM?",
+      "description": "State whether the SIEM stays in place and who operates it.",
+      "example": "The customer keeps its SIEM; we consume alerts, query evidence and write back case updates.",
+      "options": [
+        {
+          "value": "overlay",
+          "label": "Yes, as an overlay"
+        },
+        {
+          "value": "operate",
+          "label": "Yes, we operate or co-manage their SIEM"
+        },
+        {
+          "value": "both",
+          "label": "Overlay or co-managed operation"
+        },
+        {
+          "value": "own_only",
+          "label": "No, requires our own stack"
+        },
+        {
+          "value": "no_siem",
+          "label": "SIEM is not required or used"
+        }
+      ],
+      "multiple": false,
+      "section": "sources",
+      "optional": false
+    },
+    {
+      "id": "mdr.sources.integrations",
+      "label": "Who connects and maintains sources?",
+      "description": "Include connector maintenance and missing-telemetry handling, not just initial setup.",
+      "example": "Our team maintains shipped connectors; custom sources require customer engineering.",
+      "options": [
+        {
+          "value": "provider",
+          "label": "Provider handles onboarding and maintenance"
+        },
+        {
+          "value": "shared",
+          "label": "Shared with the customer"
+        },
+        {
+          "value": "customer",
+          "label": "Customer builds or maintains connections"
+        },
+        {
+          "value": "partner",
+          "label": "Partner handles connections"
+        }
+      ],
+      "multiple": false,
+      "section": "sources",
+      "optional": false
+    },
+    {
+      "id": "mdr.sources.requests",
+      "label": "Can employees or the SOC submit custom investigation requests?",
+      "description": "Include suspicious activity that did not generate an alert.",
+      "example": "An employee reports an unusual MFA prompt through Teams and our analysts investigate.",
+      "options": [
+        {
+          "value": "both",
+          "label": "Employee and SOC requests"
+        },
+        {
+          "value": "soc",
+          "label": "SOC requests only"
+        },
+        {
+          "value": "employee",
+          "label": "Employee reports only"
+        },
+        {
+          "value": "no",
+          "label": "Not supported"
+        }
+      ],
+      "multiple": false,
+      "section": "sources",
+      "optional": false
+    },
+    {
+      "id": "mdr.sources.execution",
+      "label": "Who or what performs this work?",
+      "description": "Distinguish provider humans, deterministic automation, ML and LLM or agent reasoning.",
+      "example": "An LLM proposes queries, integrations execute them, and an analyst approves containment.",
+      "options": [
+        {
+          "value": "human",
+          "label": "Provider human analysts"
+        },
+        {
+          "value": "automation",
+          "label": "Deterministic automation"
+        },
+        {
+          "value": "ml",
+          "label": "Machine learning"
+        },
+        {
+          "value": "llm",
+          "label": "LLM / agent reasoning"
+        }
+      ],
+      "multiple": true,
+      "section": "sources",
+      "optional": false
+    },
+    {
+      "id": "mdr.sources.oversight",
+      "label": "How are the provider's humans involved?",
+      "description": "Provider oversight is separate from customer delegation or approval.",
+      "example": "The customer pre-authorizes containment, but a provider analyst approves each execution.",
+      "options": [
+        {
+          "value": "in_loop",
+          "label": "Human approval required before execution"
+        },
+        {
+          "value": "on_loop",
+          "label": "Runs within policy; human supervises and can intervene"
+        },
+        {
+          "value": "unattended",
+          "label": "Runs without case-by-case human involvement"
+        },
+        {
+          "value": "manual",
+          "label": "Human performs the work"
+        },
+        {
+          "value": "mixed",
+          "label": "Varies by activity; explain below"
+        }
+      ],
+      "section": "sources",
+      "optional": false,
+      "multiple": false
+    },
+    {
+      "id": "mdr.sources.details",
+      "label": "Customer work, limits and evidence",
+      "description": "Describe required customer work, dependencies, exceptions and a redacted evidence reference.",
+      "example": "The customer connects identity sources and approves actions on privileged accounts.",
+      "optional": true,
+      "section": "sources",
+      "multiple": false
+    },
+    {
+      "id": "mdr.detection.availability",
+      "label": "Is this included in the evaluated service?",
+      "description": "Record the named package boundary. Add-ons and partner delivery are not included service.",
+      "example": "Reactive hunting is included; proactive hunting requires an add-on.",
+      "options": [
+        {
+          "value": "included",
+          "label": "Included in the evaluated package"
+        },
+        {
+          "value": "add_on",
+          "label": "Paid add-on; not included"
+        },
+        {
+          "value": "partner",
+          "label": "Delivered by a named partner"
+        },
+        {
+          "value": "roadmap",
+          "label": "Roadmap only"
+        },
+        {
+          "value": "not_supported",
+          "label": "Not offered"
+        }
+      ],
+      "section": "detection",
+      "optional": false,
+      "multiple": false
+    },
+    {
+      "id": "mdr.detection.development",
+      "label": "Where do you develop and maintain detections?",
+      "description": "Distinguish provider-owned detections from detections deployed into customer tooling.",
+      "example": "We tune rules in the customer's SIEM and maintain our own cross-customer detection content.",
+      "options": [
+        {
+          "value": "both",
+          "label": "Our stack and customer tools"
+        },
+        {
+          "value": "provider",
+          "label": "Our stack only"
+        },
+        {
+          "value": "customer",
+          "label": "Customer tools only"
+        },
+        {
+          "value": "none",
+          "label": "We do not develop detections"
+        }
+      ],
+      "multiple": false,
+      "section": "detection",
+      "optional": false
+    },
+    {
+      "id": "mdr.detection.customer_access",
+      "label": "Can customers inspect and change detection logic?",
+      "description": "Describe actual permissions, not just visibility of detection names.",
+      "example": "Customers can read the rule, request changes, and export it; they cannot edit production rules directly.",
+      "options": [
+        {
+          "value": "edit_export",
+          "label": "View, edit and export"
+        },
+        {
+          "value": "edit",
+          "label": "View and edit, no export"
+        },
+        {
+          "value": "view_export",
+          "label": "View and export, changes by request"
+        },
+        {
+          "value": "view_request",
+          "label": "View, changes by request"
+        },
+        {
+          "value": "request",
+          "label": "Changes by request; logic not visible"
+        },
+        {
+          "value": "none",
+          "label": "Neither visible nor editable"
+        },
+        {
+          "value": "na",
+          "label": "No detection development"
+        }
+      ],
+      "multiple": false,
+      "section": "detection",
+      "optional": false
+    },
+    {
+      "id": "mdr.detection.hunts",
+      "label": "Which threat hunts do you deliver?",
+      "description": "Reactive hunts follow an incident; proactive hunts do not require an existing alert.",
+      "example": "We hunt after escalations and run campaigns based on new threat intelligence.",
+      "options": [
+        {
+          "value": "reactive",
+          "label": "Reactive / incident-driven"
+        },
+        {
+          "value": "proactive",
+          "label": "Proactive / hypothesis-led"
+        },
+        {
+          "value": "intel",
+          "label": "Threat-intelligence-report driven"
+        },
+        {
+          "value": "scheduled",
+          "label": "Scheduled hunts"
+        },
+        {
+          "value": "requested",
+          "label": "Customer-requested or manually launched"
+        },
+        {
+          "value": "none",
+          "label": "No threat hunting"
+        }
+      ],
+      "multiple": true,
+      "section": "detection",
+      "optional": false
+    },
+    {
+      "id": "mdr.detection.tracking",
+      "label": "How are hunt findings tracked?",
+      "description": "Explain whether campaigns have owners and actions through to completion.",
+      "example": "Each campaign links findings to detection changes with an owner and completion status.",
+      "options": [
+        {
+          "value": "tracked",
+          "label": "Campaigns, findings, owners and follow-up actions"
+        },
+        {
+          "value": "reports",
+          "label": "Hunt reports without tracked follow-up"
+        },
+        {
+          "value": "cases",
+          "label": "Individual cases only"
+        },
+        {
+          "value": "none",
+          "label": "No hunting / tracking"
+        }
+      ],
+      "multiple": false,
+      "section": "detection",
+      "optional": false
+    },
+    {
+      "id": "mdr.detection.execution",
+      "label": "Who or what performs this work?",
+      "description": "Distinguish provider humans, deterministic automation, ML and LLM or agent reasoning.",
+      "example": "An LLM proposes queries, integrations execute them, and an analyst approves containment.",
+      "options": [
+        {
+          "value": "human",
+          "label": "Provider human analysts"
+        },
+        {
+          "value": "automation",
+          "label": "Deterministic automation"
+        },
+        {
+          "value": "ml",
+          "label": "Machine learning"
+        },
+        {
+          "value": "llm",
+          "label": "LLM / agent reasoning"
+        }
+      ],
+      "multiple": true,
+      "section": "detection",
+      "optional": false
+    },
+    {
+      "id": "mdr.detection.oversight",
+      "label": "How are the provider's humans involved?",
+      "description": "Provider oversight is separate from customer delegation or approval.",
+      "example": "The customer pre-authorizes containment, but a provider analyst approves each execution.",
+      "options": [
+        {
+          "value": "in_loop",
+          "label": "Human approval required before execution"
+        },
+        {
+          "value": "on_loop",
+          "label": "Runs within policy; human supervises and can intervene"
+        },
+        {
+          "value": "unattended",
+          "label": "Runs without case-by-case human involvement"
+        },
+        {
+          "value": "manual",
+          "label": "Human performs the work"
+        },
+        {
+          "value": "mixed",
+          "label": "Varies by activity; explain below"
+        }
+      ],
+      "section": "detection",
+      "optional": false,
+      "multiple": false
+    },
+    {
+      "id": "mdr.detection.details",
+      "label": "Customer work, limits and evidence",
+      "description": "Describe required customer work, dependencies, exceptions and a redacted evidence reference.",
+      "example": "The customer connects identity sources and approves actions on privileged accounts.",
+      "optional": true,
+      "section": "detection",
+      "multiple": false
+    },
+    {
+      "id": "mdr.context.availability",
+      "label": "Is this included in the evaluated service?",
+      "description": "Record the named package boundary. Add-ons and partner delivery are not included service.",
+      "example": "Reactive hunting is included; proactive hunting requires an add-on.",
+      "options": [
+        {
+          "value": "included",
+          "label": "Included in the evaluated package"
+        },
+        {
+          "value": "add_on",
+          "label": "Paid add-on; not included"
+        },
+        {
+          "value": "partner",
+          "label": "Delivered by a named partner"
+        },
+        {
+          "value": "roadmap",
+          "label": "Roadmap only"
+        },
+        {
+          "value": "not_supported",
+          "label": "Not offered"
+        }
+      ],
+      "section": "context",
+      "optional": false,
+      "multiple": false
+    },
+    {
+      "id": "mdr.context.sources",
+      "label": "What context do you gather?",
+      "description": "Include security history and business context; avoid claiming sources only available through custom work.",
+      "example": "We use previous incidents, identity privileges, asset owners and business criticality.",
+      "options": [
+        {
+          "value": "security",
+          "label": "Security telemetry and alerts"
+        },
+        {
+          "value": "cases",
+          "label": "Past cases and decisions"
+        },
+        {
+          "value": "identity",
+          "label": "Identity, privileges and relationships"
+        },
+        {
+          "value": "assets",
+          "label": "Assets and vulnerabilities"
+        },
+        {
+          "value": "business",
+          "label": "Business owners, processes and criticality"
+        },
+        {
+          "value": "employees",
+          "label": "Employee clarifications"
+        },
+        {
+          "value": "intel",
+          "label": "Threat intelligence"
+        },
+        {
+          "value": "none",
+          "label": "No enrichment"
+        }
+      ],
+      "multiple": true,
+      "section": "context",
+      "optional": false
+    },
+    {
+      "id": "mdr.context.architecture",
+      "label": "How is context stored or retrieved?",
+      "description": "A graph, database or live lookup can all be valid. Describe the implementation rather than its marketing name.",
+      "example": "Relationships are stored in a graph; historical case text is retrieved from a vector index.",
+      "options": [
+        {
+          "value": "graph",
+          "label": "Knowledge / context graph"
+        },
+        {
+          "value": "database",
+          "label": "Database / case records"
+        },
+        {
+          "value": "retrieval",
+          "label": "Vector retrieval"
+        },
+        {
+          "value": "live",
+          "label": "Live queries without a persistent context store"
+        },
+        {
+          "value": "hybrid",
+          "label": "Combination"
+        },
+        {
+          "value": "none",
+          "label": "No persistent or retrieved context"
+        }
+      ],
+      "multiple": false,
+      "section": "context",
+      "optional": false
+    },
+    {
+      "id": "mdr.context.maintenance",
+      "label": "How is customer context kept accurate?",
+      "description": "Who refreshes it and can the customer correct it? Explain stale or conflicting evidence in the optional details.",
+      "example": "Connectors refresh asset records daily and customers can correct asset criticality.",
+      "options": [
+        {
+          "value": "sync_edit",
+          "label": "Automatic refresh and customer corrections"
+        },
+        {
+          "value": "sync_request",
+          "label": "Automatic refresh; corrections via our team"
+        },
+        {
+          "value": "manual",
+          "label": "Manual maintenance by our team"
+        },
+        {
+          "value": "customer",
+          "label": "Customer maintains it"
+        },
+        {
+          "value": "none",
+          "label": "No maintained context"
+        }
+      ],
+      "multiple": false,
+      "section": "context",
+      "optional": false
+    },
+    {
+      "id": "mdr.context.history",
+      "label": "Can you use customer history from before onboarding?",
+      "description": "Distinguish importing historical cases from searching older telemetry.",
+      "example": "We import previous case decisions and search retained SIEM logs when new indicators emerge.",
+      "options": [
+        {
+          "value": "both",
+          "label": "Import history and run retrospective checks"
+        },
+        {
+          "value": "import",
+          "label": "Import only"
+        },
+        {
+          "value": "search",
+          "label": "Retrospective checks only"
+        },
+        {
+          "value": "neither",
+          "label": "Neither"
+        }
+      ],
+      "multiple": false,
+      "section": "context",
+      "optional": false
+    },
+    {
+      "id": "mdr.context.execution",
+      "label": "Who or what performs this work?",
+      "description": "Distinguish provider humans, deterministic automation, ML and LLM or agent reasoning.",
+      "example": "An LLM proposes queries, integrations execute them, and an analyst approves containment.",
+      "options": [
+        {
+          "value": "human",
+          "label": "Provider human analysts"
+        },
+        {
+          "value": "automation",
+          "label": "Deterministic automation"
+        },
+        {
+          "value": "ml",
+          "label": "Machine learning"
+        },
+        {
+          "value": "llm",
+          "label": "LLM / agent reasoning"
+        }
+      ],
+      "multiple": true,
+      "section": "context",
+      "optional": false
+    },
+    {
+      "id": "mdr.context.oversight",
+      "label": "How are the provider's humans involved?",
+      "description": "Provider oversight is separate from customer delegation or approval.",
+      "example": "The customer pre-authorizes containment, but a provider analyst approves each execution.",
+      "options": [
+        {
+          "value": "in_loop",
+          "label": "Human approval required before execution"
+        },
+        {
+          "value": "on_loop",
+          "label": "Runs within policy; human supervises and can intervene"
+        },
+        {
+          "value": "unattended",
+          "label": "Runs without case-by-case human involvement"
+        },
+        {
+          "value": "manual",
+          "label": "Human performs the work"
+        },
+        {
+          "value": "mixed",
+          "label": "Varies by activity; explain below"
+        }
+      ],
+      "section": "context",
+      "optional": false,
+      "multiple": false
+    },
+    {
+      "id": "mdr.context.details",
+      "label": "Customer work, limits and evidence",
+      "description": "Describe required customer work, dependencies, exceptions and a redacted evidence reference.",
+      "example": "The customer connects identity sources and approves actions on privileged accounts.",
+      "optional": true,
+      "section": "context",
+      "multiple": false
+    },
+    {
+      "id": "mdr.investigation.availability",
+      "label": "Is this included in the evaluated service?",
+      "description": "Record the named package boundary. Add-ons and partner delivery are not included service.",
+      "example": "Reactive hunting is included; proactive hunting requires an add-on.",
+      "options": [
+        {
+          "value": "included",
+          "label": "Included in the evaluated package"
+        },
+        {
+          "value": "add_on",
+          "label": "Paid add-on; not included"
+        },
+        {
+          "value": "partner",
+          "label": "Delivered by a named partner"
+        },
+        {
+          "value": "roadmap",
+          "label": "Roadmap only"
+        },
+        {
+          "value": "not_supported",
+          "label": "Not offered"
+        }
+      ],
+      "section": "investigation",
+      "optional": false,
+      "multiple": false
+    },
+    {
+      "id": "mdr.investigation.depth",
+      "label": "What investigation work is delivered?",
+      "description": "Choose the work the service actually performs, not every capability of an underlying tool.",
+      "example": "Our team builds a timeline, hunts for related activity and determines affected identities.",
+      "options": [
+        {
+          "value": "triage",
+          "label": "Enrichment, correlation and verdict"
+        },
+        {
+          "value": "timeline",
+          "label": "Timeline and root-cause analysis"
+        },
+        {
+          "value": "hunting",
+          "label": "Reactive threat hunting"
+        },
+        {
+          "value": "scope",
+          "label": "Blast radius and affected entities"
+        },
+        {
+          "value": "coordination",
+          "label": "Incident coordination"
+        },
+        {
+          "value": "none",
+          "label": "No investigation"
+        }
+      ],
+      "multiple": true,
+      "section": "investigation",
+      "optional": false
+    },
+    {
+      "id": "mdr.investigation.employees",
+      "label": "Can you interact directly with employees?",
+      "description": "Explain channels, identity verification and privacy controls in the details below.",
+      "example": "Our analyst contacts the employee through an approved Teams channel to confirm activity, with the conversation linked to the case.",
+      "options": [
+        {
+          "value": "human",
+          "label": "Provider analysts contact employees"
+        },
+        {
+          "value": "ai_reviewed",
+          "label": "AI-assisted messages reviewed by a human"
+        },
+        {
+          "value": "ai_direct",
+          "label": "AI interacts directly within approved boundaries"
+        },
+        {
+          "value": "customer",
+          "label": "Only through the customer's SOC"
+        },
+        {
+          "value": "none",
+          "label": "No employee interaction"
+        }
+      ],
+      "multiple": false,
+      "section": "investigation",
+      "optional": false
+    },
+    {
+      "id": "mdr.investigation.dfir",
+      "label": "What DFIR support is available?",
+      "description": "Collection alone is not a full forensic investigation. Include evidence integrity and chain-of-custody limits in the details.",
+      "example": "Artifact collection is included; full forensic analysis requires a separate retainer.",
+      "options": [
+        {
+          "value": "full",
+          "label": "Full DFIR included"
+        },
+        {
+          "value": "collection",
+          "label": "Collection / initial analysis only"
+        },
+        {
+          "value": "add_on",
+          "label": "Separate paid DFIR engagement"
+        },
+        {
+          "value": "partner",
+          "label": "Partner referral"
+        },
+        {
+          "value": "none",
+          "label": "Not offered"
+        }
+      ],
+      "multiple": false,
+      "section": "investigation",
+      "optional": false
+    },
+    {
+      "id": "mdr.investigation.execution",
+      "label": "Who or what performs this work?",
+      "description": "Distinguish provider humans, deterministic automation, ML and LLM or agent reasoning.",
+      "example": "An LLM proposes queries, integrations execute them, and an analyst approves containment.",
+      "options": [
+        {
+          "value": "human",
+          "label": "Provider human analysts"
+        },
+        {
+          "value": "automation",
+          "label": "Deterministic automation"
+        },
+        {
+          "value": "ml",
+          "label": "Machine learning"
+        },
+        {
+          "value": "llm",
+          "label": "LLM / agent reasoning"
+        }
+      ],
+      "multiple": true,
+      "section": "investigation",
+      "optional": false
+    },
+    {
+      "id": "mdr.investigation.oversight",
+      "label": "How are the provider's humans involved?",
+      "description": "Provider oversight is separate from customer delegation or approval.",
+      "example": "The customer pre-authorizes containment, but a provider analyst approves each execution.",
+      "options": [
+        {
+          "value": "in_loop",
+          "label": "Human approval required before execution"
+        },
+        {
+          "value": "on_loop",
+          "label": "Runs within policy; human supervises and can intervene"
+        },
+        {
+          "value": "unattended",
+          "label": "Runs without case-by-case human involvement"
+        },
+        {
+          "value": "manual",
+          "label": "Human performs the work"
+        },
+        {
+          "value": "mixed",
+          "label": "Varies by activity; explain below"
+        }
+      ],
+      "section": "investigation",
+      "optional": false,
+      "multiple": false
+    },
+    {
+      "id": "mdr.investigation.details",
+      "label": "Customer work, limits and evidence",
+      "description": "Describe required customer work, dependencies, exceptions and a redacted evidence reference.",
+      "example": "The customer connects identity sources and approves actions on privileged accounts.",
+      "optional": true,
+      "section": "investigation",
+      "multiple": false
+    },
+    {
+      "id": "mdr.response.availability",
+      "label": "Is this included in the evaluated service?",
+      "description": "Record the named package boundary. Add-ons and partner delivery are not included service.",
+      "example": "Reactive hunting is included; proactive hunting requires an add-on.",
+      "options": [
+        {
+          "value": "included",
+          "label": "Included in the evaluated package"
+        },
+        {
+          "value": "add_on",
+          "label": "Paid add-on; not included"
+        },
+        {
+          "value": "partner",
+          "label": "Delivered by a named partner"
+        },
+        {
+          "value": "roadmap",
+          "label": "Roadmap only"
+        },
+        {
+          "value": "not_supported",
+          "label": "Not offered"
+        }
+      ],
+      "section": "response",
+      "optional": false,
+      "multiple": false
+    },
+    {
+      "id": "mdr.response.actions",
+      "label": "Where can the service execute response actions?",
+      "description": "Receiving alerts from a tool does not establish the ability to take action in it.",
+      "example": "We can isolate endpoints and revoke identity sessions, but only recommend network changes.",
+      "options": [
+        {
+          "value": "endpoint",
+          "label": "Endpoint"
+        },
+        {
+          "value": "identity",
+          "label": "Identity"
+        },
+        {
+          "value": "network",
+          "label": "Network"
+        },
+        {
+          "value": "cloud",
+          "label": "Cloud"
+        },
+        {
+          "value": "saas",
+          "label": "SaaS / email"
+        },
+        {
+          "value": "none",
+          "label": "Recommendations only"
+        }
+      ],
+      "multiple": true,
+      "section": "response",
+      "optional": false
+    },
+    {
+      "id": "mdr.response.boundary",
+      "label": "Where does your responsibility end?",
+      "description": "Choose the normal contracted boundary; describe exceptions below.",
+      "example": "We contain the threat and verify containment; the customer owns rebuilding affected systems.",
+      "options": [
+        {
+          "value": "notify",
+          "label": "Notification / escalation"
+        },
+        {
+          "value": "recommend",
+          "label": "Investigation and recommendations"
+        },
+        {
+          "value": "contain",
+          "label": "Containment and verification"
+        },
+        {
+          "value": "remediate",
+          "label": "Remediation and verification"
+        },
+        {
+          "value": "recover",
+          "label": "Recovery coordination through resolution"
+        }
+      ],
+      "multiple": false,
+      "section": "response",
+      "optional": false
+    },
+    {
+      "id": "mdr.response.authorization",
+      "label": "How does the customer authorize response?",
+      "description": "Customer delegation is separate from whether your own analysts approve actions.",
+      "example": "The customer pre-authorizes endpoint isolation, while account deletion needs specific approval.",
+      "options": [
+        {
+          "value": "each",
+          "label": "Customer approval for each action"
+        },
+        {
+          "value": "policy",
+          "label": "Pre-authorized actions within customer policy"
+        },
+        {
+          "value": "mixed",
+          "label": "Different approval by action, risk or system"
+        },
+        {
+          "value": "none",
+          "label": "No response execution"
+        }
+      ],
+      "multiple": false,
+      "section": "response",
+      "optional": false
+    },
+    {
+      "id": "mdr.response.processes",
+      "label": "Can response follow the customer's processes?",
+      "description": "Include business-critical exceptions, change windows and approval chains.",
+      "example": "Production servers require application-owner approval even if workstation isolation is pre-authorized.",
+      "options": [
+        {
+          "value": "custom",
+          "label": "Customer-specific processes and playbooks"
+        },
+        {
+          "value": "configured",
+          "label": "Configurable provider templates"
+        },
+        {
+          "value": "standard",
+          "label": "Provider's standard process only"
+        },
+        {
+          "value": "none",
+          "label": "No response execution"
+        }
+      ],
+      "multiple": false,
+      "section": "response",
+      "optional": false
+    },
+    {
+      "id": "mdr.response.handover",
+      "label": "What happens when work is escalated to the customer?",
+      "description": "Separate sending a ticket from tracking whether the issue was resolved.",
+      "example": "We retain the case owner, track customer tasks and verify the result before closure.",
+      "options": [
+        {
+          "value": "owned",
+          "label": "We retain ownership through verified resolution"
+        },
+        {
+          "value": "shared",
+          "label": "Shared ownership with tracked follow-up"
+        },
+        {
+          "value": "handoff",
+          "label": "Customer takes ownership after handover"
+        },
+        {
+          "value": "varies",
+          "label": "Depends on the contracted activity; explain below"
+        }
+      ],
+      "multiple": false,
+      "section": "response",
+      "optional": false
+    },
+    {
+      "id": "mdr.response.execution",
+      "label": "Who or what performs this work?",
+      "description": "Distinguish provider humans, deterministic automation, ML and LLM or agent reasoning.",
+      "example": "An LLM proposes queries, integrations execute them, and an analyst approves containment.",
+      "options": [
+        {
+          "value": "human",
+          "label": "Provider human analysts"
+        },
+        {
+          "value": "automation",
+          "label": "Deterministic automation"
+        },
+        {
+          "value": "ml",
+          "label": "Machine learning"
+        },
+        {
+          "value": "llm",
+          "label": "LLM / agent reasoning"
+        }
+      ],
+      "multiple": true,
+      "section": "response",
+      "optional": false
+    },
+    {
+      "id": "mdr.response.oversight",
+      "label": "How are the provider's humans involved?",
+      "description": "Provider oversight is separate from customer delegation or approval.",
+      "example": "The customer pre-authorizes containment, but a provider analyst approves each execution.",
+      "options": [
+        {
+          "value": "in_loop",
+          "label": "Human approval required before execution"
+        },
+        {
+          "value": "on_loop",
+          "label": "Runs within policy; human supervises and can intervene"
+        },
+        {
+          "value": "unattended",
+          "label": "Runs without case-by-case human involvement"
+        },
+        {
+          "value": "manual",
+          "label": "Human performs the work"
+        },
+        {
+          "value": "mixed",
+          "label": "Varies by activity; explain below"
+        }
+      ],
+      "section": "response",
+      "optional": false,
+      "multiple": false
+    },
+    {
+      "id": "mdr.response.details",
+      "label": "Customer work, limits and evidence",
+      "description": "Describe required customer work, dependencies, exceptions and a redacted evidence reference.",
+      "example": "The customer connects identity sources and approves actions on privileged accounts.",
+      "optional": true,
+      "section": "response",
+      "multiple": false
+    },
+    {
+      "id": "mdr.feedback.availability",
+      "label": "Is this included in the evaluated service?",
+      "description": "Record the named package boundary. Add-ons and partner delivery are not included service.",
+      "example": "Reactive hunting is included; proactive hunting requires an add-on.",
+      "options": [
+        {
+          "value": "included",
+          "label": "Included in the evaluated package"
+        },
+        {
+          "value": "add_on",
+          "label": "Paid add-on; not included"
+        },
+        {
+          "value": "partner",
+          "label": "Delivered by a named partner"
+        },
+        {
+          "value": "roadmap",
+          "label": "Roadmap only"
+        },
+        {
+          "value": "not_supported",
+          "label": "Not offered"
+        }
+      ],
+      "section": "feedback",
+      "optional": false,
+      "multiple": false
+    },
+    {
+      "id": "mdr.feedback.inputs",
+      "label": "How is feedback collected?",
+      "description": "Include mistakes, reopened cases and failed actions, not just satisfaction surveys.",
+      "example": "Analysts review corrected verdicts and a sample of automatically closed cases weekly.",
+      "options": [
+        {
+          "value": "corrections",
+          "label": "Customer / analyst corrections"
+        },
+        {
+          "value": "reopened",
+          "label": "Reopened cases"
+        },
+        {
+          "value": "actions",
+          "label": "Response success, failure or rollback"
+        },
+        {
+          "value": "sampling",
+          "label": "Review of AI / automatically closed cases"
+        },
+        {
+          "value": "reviews",
+          "label": "Scheduled customer reviews"
+        },
+        {
+          "value": "none",
+          "label": "No structured feedback"
+        }
+      ],
+      "multiple": true,
+      "section": "feedback",
+      "optional": false
+    },
+    {
+      "id": "mdr.feedback.changes",
+      "label": "What is changed as a result?",
+      "description": "Select implemented changes, not improvements merely recommended to the customer.",
+      "example": "A corrected verdict updates a detection exception and a reviewed investigation procedure.",
+      "options": [
+        {
+          "value": "detections",
+          "label": "Detections and tuning"
+        },
+        {
+          "value": "context",
+          "label": "Context / knowledge records"
+        },
+        {
+          "value": "investigation",
+          "label": "Investigation procedures or prompts"
+        },
+        {
+          "value": "response",
+          "label": "Response processes and automation"
+        },
+        {
+          "value": "models",
+          "label": "Models, after validation"
+        },
+        {
+          "value": "recommendations",
+          "label": "Recommendations only"
+        },
+        {
+          "value": "none",
+          "label": "No implemented changes"
+        }
+      ],
+      "multiple": true,
+      "section": "feedback",
+      "optional": false
+    },
+    {
+      "id": "mdr.feedback.visibility",
+      "label": "Can customers see which improvements were implemented?",
+      "description": "A report of findings is different from a record of completed changes.",
+      "example": "The customer sees the change, case reference, approval, validation and deployment date.",
+      "options": [
+        {
+          "value": "audited",
+          "label": "Linked change, approval, validation and deployment record"
+        },
+        {
+          "value": "summary",
+          "label": "Summary of changes only"
+        },
+        {
+          "value": "request",
+          "label": "Available on request"
+        },
+        {
+          "value": "none",
+          "label": "No implementation visibility"
+        }
+      ],
+      "multiple": false,
+      "section": "feedback",
+      "optional": false
+    },
+    {
+      "id": "mdr.feedback.execution",
+      "label": "Who or what performs this work?",
+      "description": "Distinguish provider humans, deterministic automation, ML and LLM or agent reasoning.",
+      "example": "An LLM proposes queries, integrations execute them, and an analyst approves containment.",
+      "options": [
+        {
+          "value": "human",
+          "label": "Provider human analysts"
+        },
+        {
+          "value": "automation",
+          "label": "Deterministic automation"
+        },
+        {
+          "value": "ml",
+          "label": "Machine learning"
+        },
+        {
+          "value": "llm",
+          "label": "LLM / agent reasoning"
+        }
+      ],
+      "multiple": true,
+      "section": "feedback",
+      "optional": false
+    },
+    {
+      "id": "mdr.feedback.oversight",
+      "label": "How are the provider's humans involved?",
+      "description": "Provider oversight is separate from customer delegation or approval.",
+      "example": "The customer pre-authorizes containment, but a provider analyst approves each execution.",
+      "options": [
+        {
+          "value": "in_loop",
+          "label": "Human approval required before execution"
+        },
+        {
+          "value": "on_loop",
+          "label": "Runs within policy; human supervises and can intervene"
+        },
+        {
+          "value": "unattended",
+          "label": "Runs without case-by-case human involvement"
+        },
+        {
+          "value": "manual",
+          "label": "Human performs the work"
+        },
+        {
+          "value": "mixed",
+          "label": "Varies by activity; explain below"
+        }
+      ],
+      "section": "feedback",
+      "optional": false,
+      "multiple": false
+    },
+    {
+      "id": "mdr.feedback.details",
+      "label": "Customer work, limits and evidence",
+      "description": "Describe required customer work, dependencies, exceptions and a redacted evidence reference.",
+      "example": "The customer connects identity sources and approves actions on privileged accounts.",
+      "optional": true,
+      "section": "feedback",
+      "multiple": false
+    },
+    {
+      "id": "mdr.trust.availability",
+      "label": "Is this included in the evaluated service?",
+      "description": "Record the named package boundary. Add-ons and partner delivery are not included service.",
+      "example": "Reactive hunting is included; proactive hunting requires an add-on.",
+      "options": [
+        {
+          "value": "included",
+          "label": "Included in the evaluated package"
+        },
+        {
+          "value": "add_on",
+          "label": "Paid add-on; not included"
+        },
+        {
+          "value": "partner",
+          "label": "Delivered by a named partner"
+        },
+        {
+          "value": "roadmap",
+          "label": "Roadmap only"
+        },
+        {
+          "value": "not_supported",
+          "label": "Not offered"
+        }
+      ],
+      "section": "trust",
+      "optional": false,
+      "multiple": false
+    },
+    {
+      "id": "mdr.trust.attribution",
+      "label": "Can customers distinguish AI, automation and human work?",
+      "description": "Look for attribution for each decision or action, not an overall AI-powered label.",
+      "example": "The case timeline identifies the model-generated verdict, automated queries and analyst-approved containment.",
+      "options": [
+        {
+          "value": "step",
+          "label": "Per-step attribution visible to customers"
+        },
+        {
+          "value": "case",
+          "label": "Case-level summary only"
+        },
+        {
+          "value": "request",
+          "label": "Only available on request"
+        },
+        {
+          "value": "none",
+          "label": "Not visible"
+        }
+      ],
+      "multiple": false,
+      "section": "trust",
+      "optional": false
+    },
+    {
+      "id": "mdr.trust.failure",
+      "label": "What happens when AI is uncertain or fails?",
+      "description": "Describe safe fallback, escalation and responsibility, not just model confidence.",
+      "example": "Conflicting evidence prevents auto-closure and routes the case to an analyst.",
+      "options": [
+        {
+          "value": "human",
+          "label": "Escalates to a human with evidence"
+        },
+        {
+          "value": "bounded",
+          "label": "Falls back to bounded deterministic procedures"
+        },
+        {
+          "value": "both",
+          "label": "Human escalation and bounded fallback"
+        },
+        {
+          "value": "none",
+          "label": "No defined fallback"
+        },
+        {
+          "value": "no_ai",
+          "label": "No AI in the evaluated service"
+        }
+      ],
+      "multiple": false,
+      "section": "trust",
+      "optional": false
+    },
+    {
+      "id": "mdr.trust.controls",
+      "label": "Which safeguards can you demonstrate?",
+      "description": "Select current controls and use the briefing to show evidence. These are declarations, not verified scores.",
+      "example": "Tool permissions prevent an investigation agent from taking response actions without approval.",
+      "options": [
+        {
+          "value": "permissions",
+          "label": "Scoped tool permissions and approval controls"
+        },
+        {
+          "value": "untrusted",
+          "label": "Testing malicious content in alerts and employee messages"
+        },
+        {
+          "value": "data",
+          "label": "Data residency, retention and tenant isolation"
+        },
+        {
+          "value": "models",
+          "label": "Model and prompt change testing"
+        },
+        {
+          "value": "audit",
+          "label": "Evidence-linked audit trail and overrides"
+        },
+        {
+          "value": "none",
+          "label": "None available to demonstrate"
+        }
+      ],
+      "multiple": true,
+      "section": "trust",
+      "optional": false
+    },
+    {
+      "id": "mdr.trust.commitments",
+      "label": "What coverage and service commitments apply?",
+      "description": "State hours, escalation coverage, targets versus contractual SLAs, and exclusions for this package.",
+      "example": "24/7 investigation; containment target measured from confirmed incident. Recovery is not included.",
+      "multiple": false,
+      "optional": false,
+      "section": "trust"
+    },
+    {
+      "id": "mdr.trust.details",
+      "label": "Customer work, limits and evidence",
+      "description": "Describe required customer work, dependencies, exceptions and a redacted evidence reference.",
+      "example": "The customer connects identity sources and approves actions on privileged accounts.",
+      "optional": true,
+      "section": "trust",
+      "multiple": false
+    }
+  ]
+}

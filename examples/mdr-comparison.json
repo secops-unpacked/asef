@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "frameworkVersion": "3.1.3",
+  "kind": "needs-comparison",
+  "fictional": true,
+  "needsId": "fictional-service-needs",
+  "track": "mdr",
+  "criteria": [
+    {"id": "mdr.sources", "priority": "must", "successCriterion": "Use the customer's existing SIEM and accept employee-reported requests."},
+    {"id": "mdr.response", "priority": "must", "successCriterion": "Retain case ownership until approved containment is verified."},
+    {"id": "mdr.feedback", "priority": "must", "successCriterion": "Show a reviewed, approved and implemented detection improvement from a corrected case."}
+  ],
+  "offerings": [
+    {
+      "id": "fictional-mdr-a", "name": "Example MDR Service (fictional)", "revision": 1, "track": "mdr",
+      "reviewContext": {"needsId": "fictional-service-needs", "profileId": "fictional-mdr-a", "profileRevision": 1, "track": "mdr"},
+      "findings": [
+        {"criterionId": "mdr.sources", "outcomeCriterion": "Use the customer's existing SIEM and accept employee-reported requests.", "outcome": 2, "evidenceBasis": "demonstrated", "evidenceReference": "Fictional intake walkthrough"},
+        {"criterionId": "mdr.response", "outcomeCriterion": "Retain case ownership until approved containment is verified.", "outcome": 1, "evidenceBasis": "documentation", "evidenceReference": "Fictional service boundary: ownership transfers before verification"},
+        {"criterionId": "mdr.feedback", "outcomeCriterion": "Show a reviewed, approved and implemented detection improvement from a corrected case.", "outcome": 2, "evidenceBasis": "vendor_claim", "evidenceReference": "Fictional provider statement without reviewed change record"}
+      ]
+    }
+  ]
+}

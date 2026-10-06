@@ -1,0 +1,51 @@
+name: Propose a capability or service check
+description: Suggest a missing, independently testable evaluation criterion.
+title: "[Capability] "
+body:
+  - type: markdown
+    attributes:
+      value: "Use public or fictional examples. A feature name alone is not a testable criterion."
+  - type: dropdown
+    id: track
+    attributes:
+      label: Offering track
+      options:
+        - Technology
+        - MDR service
+        - Both, with separate definitions
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: Proposed capability name
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: What work should it deliver, and how would you test it?
+      description: Describe the buyer outcome, evidence and a counterexample that should not qualify.
+    validations:
+      required: true
+  - type: textarea
+    id: placement
+    attributes:
+      label: Shift Map placement and existing overlap
+      description: Include related IDs. Explain delivery dependencies, human involvement and why a new check is needed.
+    validations:
+      required: true
+  - type: input
+    id: affiliation
+    attributes:
+      label: Relevant affiliation
+      description: State relevant vendor/commercial ties, or “None”.
+    validations:
+      required: true
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Before submitting
+      options:
+        - label: I have the rights to share this material for inclusion under CC BY 4.0, and it contains no confidential information.
+          required: true

@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "frameworkVersion": "3.1.3",
+  "publicationRevision": "2026-10-06.1",
+  "sourceRevision": "19aeccd34783dd733561e1cfd4694b922b4e7506",
+  "kind": "vocabulary",
+  "technologyDelivery": [
+    {
+      "value": "not_supported",
+      "label": "Not supported",
+      "description": "The product does not provide this capability."
+    },
+    {
+      "value": "public_roadmap",
+      "label": "Public roadmap",
+      "description": "Planned, not currently available to customers."
+    },
+    {
+      "value": "private_preview",
+      "label": "Private preview",
+      "description": "Available only to selected preview customers; excluded from current GA coverage."
+    },
+    {
+      "value": "public_preview",
+      "label": "Public preview",
+      "description": "Available for preview, but not generally available yet."
+    },
+    {
+      "value": "ga_partner",
+      "label": "GA via a required partner or managed service",
+      "description": "Available today, but a partner or managed service must deliver it. Not a native out-of-the-box product capability."
+    },
+    {
+      "value": "ga_requires_build",
+      "label": "GA, customer build required",
+      "description": "The customer must create and maintain workflows, agents, connectors, or code. A connector or API alone does not count as a pre-built solution."
+    },
+    {
+      "value": "ga_configured",
+      "label": "GA with configuration",
+      "description": "A shipped capability needs configuration, permissions, or tuning, but no new workflow, agent, or connector needs to be built."
+    },
+    {
+      "value": "ga_out_of_box",
+      "label": "GA out of the box",
+      "description": "A pre-built solution ships with the product and works after standard onboarding. No custom build is required."
+    }
+  ],
+  "serviceDelivery": [
+    {
+      "value": "included",
+      "label": "Included in the evaluated package"
+    },
+    {
+      "value": "add_on",
+      "label": "Paid add-on; not included"
+    },
+    {
+      "value": "partner",
+      "label": "Delivered by a named partner"
+    },
+    {
+      "value": "roadmap",
+      "label": "Roadmap only"
+    },
+    {
+      "value": "not_supported",
+      "label": "Not offered"
+    }
+  ],
+  "executionMechanisms": [
+    {
+      "value": "manual",
+      "label": "Manual process"
+    },
+    {
+      "value": "deterministic_automation",
+      "label": "Deterministic automation only"
+    },
+    {
+      "value": "llm_agent",
+      "label": "LLM or agent reasoning only"
+    },
+    {
+      "value": "automation_and_llm",
+      "label": "Automation + LLM / agent reasoning"
+    },
+    {
+      "value": "automation_ml_llm",
+      "label": "Automation + ML + LLM / agent reasoning"
+    }
+  ],
+  "evidenceBasis": [
+    {
+      "value": "vendor_claim",
+      "label": "Vendor claim / published RFI"
+    },
+    {
+      "value": "documentation",
+      "label": "Product documentation reviewed"
+    },
+    {
+      "value": "demonstrated",
+      "label": "Observed in a demo"
+    },
+    {
+      "value": "validated",
+      "label": "Validated in our environment"
+    }
+  ],
+  "autonomy": [
+    {
+      "value": "0",
+      "label": "Manual",
+      "points": 0,
+      "description": "The person performs the work. No autonomy."
+    },
+    {
+      "value": "1C",
+      "label": "Collaborator",
+      "points": 1,
+      "description": "The system assists; the human acts."
+    },
+    {
+      "value": "1G",
+      "label": "Guide",
+      "points": 1,
+      "description": "The system proposes; a human approves before execution."
+    },
+    {
+      "value": "1A",
+      "label": "Approver",
+      "points": 1,
+      "description": "The system acts within policy; a human can veto or intervene."
+    },
+    {
+      "value": "2",
+      "label": "Automated",
+      "points": 2,
+      "description": "The system runs end to end within the assessed boundary, without case-by-case human involvement."
+    }
+  ],
+  "functional": [
+    {
+      "value": "0",
+      "label": "None",
+      "points": 0
+    },
+    {
+      "value": "1",
+      "label": "Limited",
+      "points": 1
+    },
+    {
+      "value": "2",
+      "label": "Full",
+      "points": 2
+    }
+  ],
+  "priorities": [
+    "must",
+    "nice",
+    "explore",
+    "out"
+  ]
+}

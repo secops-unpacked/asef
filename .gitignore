@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
+.env
+.env.*
+*.pem
+*.key
+tmp/
+private/
+vendor-submissions/
+recordings/
+node_modules/
